@@ -6,4 +6,5 @@ module Ultron
   autoload :MQTT, 'ultron/mqtt'
   autoload :Sender, 'ultron/sender'
   autoload :Receiver, 'ultron/receiver'
+  autoload :Client, 'ultron/client'
 end

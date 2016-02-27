@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'ultron'
+require 'pry'
+
+config = {
+  serial: {
+    port: '/dev/cu.usbmodem1421',
+    rate: 9600
+  },
+  mqtt: {
+    host: 'localhost',
+    username: '',
+    password: '',
+    port: 1883,
+    ssl: false
+  }
+}
+
+Ultron::Client.new(config).execute
+
+Pry.start
