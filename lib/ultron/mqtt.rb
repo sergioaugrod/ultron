@@ -11,6 +11,8 @@ module Ultron
     end
 
     def connect
+      Logger.info("Connecting to #{@host} MQTT")
+
       ::MQTT::Client.connect(
         host: @host,
         username: @username,

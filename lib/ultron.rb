@@ -2,6 +2,7 @@ require 'ultron/version'
 require 'pry'
 
 module Ultron
+  autoload :Logger, 'ultron/logger'
   autoload :Serial, 'ultron/serial'
   autoload :MQTT, 'ultron/mqtt'
   autoload :Sender, 'ultron/sender'

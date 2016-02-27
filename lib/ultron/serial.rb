@@ -17,7 +17,7 @@ module Ultron
       @connection.gets
     end
 
-    def send(message)
+    def write(message)
       @connection.write(message)
     end
   end

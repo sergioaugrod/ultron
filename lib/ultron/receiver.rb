@@ -14,27 +14,23 @@ module Ultron
     def execute
       loop do
         parse_and_publish(@serial.get)
-        sleep 1
       end
     end
 
     private
 
     def parse_and_publish(message)
-      puts message
-
       data = JSON.parse(message)
-      puts data
+      Logger.info("Parsed serial object: #{data}")
 
-      #data.each_pair do |key, value|
-      #  publish(key, value)
-    #  end
+      publish(data['topic'], data['value']) if @mqtt
     rescue
-      puts "Tente outra vez"
+      Logger.error("Failed to parse serial object: #{message}")
     end
 
-    def publish(key, value)
-      @mqtt.publish("sensors/#{key}", value)
+    def publish(topic, value)
+      @mqtt.publish("receiver/#{topic}", value)
+      Logger.info("Publish #{value} to sensors/#{topic}\n")
     end
   end
 end

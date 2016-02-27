@@ -1,3 +1,6 @@
+require 'concurrent'
+require 'json'
+
 module Ultron
   class Sender
     include Concurrent::Async
@@ -9,7 +12,25 @@ module Ultron
     end
 
     def execute
-      #@serial.write(message)
+      if @mqtt
+        subscribe_queues
+      else
+        Logger.warn('Sender is offline because MQTT isnt connected')
+      end
+    end
+
+    private
+
+    def subscribe_queues
+      @mqtt.subscribe('sender/#')
+      Logger.info("Subscribe sender queues\n")
+
+      @mqtt.get do |topic, value|
+        message = {topic: topic, value: value}.to_json
+
+        Logger.info("Write #{message} to serial\n")
+        @serial.write(message)
+      end
     end
   end
 end

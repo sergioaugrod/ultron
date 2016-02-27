@@ -10,7 +10,7 @@ module Ultron
       serial = serial_connect
       mqtt = mqtt_connect
 
-      #Ultron::Sender.new(serial, mqtt).async.execute
+      Ultron::Sender.new(serial, mqtt).async.execute
       Ultron::Receiver.new(serial, mqtt).async.execute
     end
 
@@ -22,6 +22,8 @@ module Ultron
 
     def mqtt_connect
       Ultron::MQTT.new(@config[:mqtt]).connect
+    rescue
+      Logger.error('Failed MQTT connection') && false
     end
   end
 end
