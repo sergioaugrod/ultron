@@ -2,8 +2,6 @@ module Ultron
   class Client
     include Configurable
 
-    attr_reader :sender, :receiver
-
     def initialize(options = {})
       Ultron::Configurable.keys.each do |key|
         send("#{key}=", options[key] || Ultron.send(key.to_s))
