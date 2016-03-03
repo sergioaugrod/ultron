@@ -18,6 +18,8 @@ module Ultron
       Event::Receiver.new(serial, mqtt).async.execute
     end
 
+    private
+
     def serial_connect
       Transport::Serial.new(@serial[:port], @serial[:rate]).tap do |serial|
         serial.connect
