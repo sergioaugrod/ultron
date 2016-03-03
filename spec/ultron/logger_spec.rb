@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Ultron::Logger do
   let(:message) { 'any message' }
 
-  describe '#debug' do
+  describe '.debug' do
     context 'when has message' do
       subject { described_class.debug(message) }
 
@@ -17,7 +17,7 @@ RSpec.describe Ultron::Logger do
     end
   end
 
-  describe '#info' do
+  describe '.info' do
     context 'when has message' do
       subject { described_class.info(message) }
 
@@ -31,7 +31,7 @@ RSpec.describe Ultron::Logger do
     end
   end
 
-  describe '#warn' do
+  describe '.warn' do
     context 'when has message' do
       subject { described_class.warn(message) }
 
@@ -45,7 +45,7 @@ RSpec.describe Ultron::Logger do
     end
   end
 
-  describe '#error' do
+  describe '.error' do
     context 'when has message' do
       subject { described_class.error(message) }
 
