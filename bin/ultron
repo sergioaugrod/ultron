@@ -4,20 +4,21 @@ require 'bundler/setup'
 require 'ultron'
 require 'pry'
 
-config = {
-  serial: {
+Ultron.configure do |c|
+  c.serial = {
     port: '/dev/cu.usbmodem1421',
     rate: 9600
-  },
-  mqtt: {
+  }
+
+  c.mqtt = {
     host: 'localhost',
     username: '',
     password: '',
     port: 1883,
     ssl: false
   }
-}
+end
 
-Ultron::Client.new(config).execute
+Ultron::Client.new.execute
 
 Pry.start

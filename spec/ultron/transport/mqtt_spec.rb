@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Ultron::MQTT do
+RSpec.describe Ultron::Transport::MQTT do
   let(:attrs) { { host: 'localhost', port: 1883 } }
   let(:instance) { described_class.new(attrs) }
 

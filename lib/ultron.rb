@@ -1,11 +1,14 @@
 require 'ultron/version'
+require 'ultron/configurable'
 require 'pry'
 
 module Ultron
+  class << self
+    include Ultron::Configurable
+  end
+
   autoload :Logger, 'ultron/logger'
-  autoload :Serial, 'ultron/serial'
-  autoload :MQTT, 'ultron/mqtt'
-  autoload :Sender, 'ultron/sender'
-  autoload :Receiver, 'ultron/receiver'
+  autoload :Transport, 'ultron/transport'
+  autoload :Event, 'ultron/event'
   autoload :Client, 'ultron/client'
 end
