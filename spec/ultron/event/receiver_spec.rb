@@ -6,7 +6,7 @@ RSpec.describe Ultron::Event::Receiver do
   let(:instance) { described_class.new(serial, mqtt) }
 
   describe '#parse_and_publish' do
-    let(:message) { "{\"topic\":\"receiver/temperature\",\"value\":\"30\"}" }
+    let(:message) { '{"topic":"receiver/temperature","value":"30"}' }
     let(:message_parsed) { JSON.parse(message) }
 
     subject { instance.parse_and_publish(message) }
@@ -34,7 +34,7 @@ RSpec.describe Ultron::Event::Receiver do
     end
 
     context 'when invalid message' do
-      let(:message) { "topic: receiver/temperature, value: 30" }
+      let(:message) { 'topic: receiver/temperature, value: 30' }
 
       before do
         expect(Ultron::Logger).to receive(:error).and_return(true)

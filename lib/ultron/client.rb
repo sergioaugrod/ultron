@@ -6,7 +6,7 @@ module Ultron
 
     def initialize(options = {})
       Ultron::Configurable.keys.each do |key|
-        send("#{key}=", options[key] || Ultron.send("#{key}"))
+        send("#{key}=", options[key] || Ultron.send(key.to_s))
       end
     end
 
@@ -21,9 +21,7 @@ module Ultron
     private
 
     def serial_connect
-      Transport::Serial.new(@serial[:port], @serial[:rate]).tap do |serial|
-        serial.connect
-      end
+      Transport::Serial.new(@serial[:port], @serial[:rate]).tap(&:connect)
     end
 
     def mqtt_connect

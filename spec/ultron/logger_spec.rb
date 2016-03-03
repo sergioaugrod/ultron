@@ -13,7 +13,7 @@ RSpec.describe Ultron::Logger do
     context 'when hasnt message' do
       subject { described_class.debug }
 
-      it { expect{subject}.to raise_error(ArgumentError) }
+      it { expect { subject }.to raise_error(ArgumentError) }
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe Ultron::Logger do
     context 'when hasnt message' do
       subject { described_class.info }
 
-      it { expect{subject}.to raise_error(ArgumentError) }
+      it { expect { subject }.to raise_error(ArgumentError) }
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe Ultron::Logger do
     context 'when hasnt message' do
       subject { described_class.warn }
 
-      it { expect{subject}.to raise_error(ArgumentError) }
+      it { expect { subject }.to raise_error(ArgumentError) }
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe Ultron::Logger do
     context 'when hasnt message' do
       subject { described_class.error }
 
-      it { expect{subject}.to raise_error(ArgumentError) }
+      it { expect { subject }.to raise_error(ArgumentError) }
     end
   end
 end

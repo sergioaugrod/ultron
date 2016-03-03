@@ -2,10 +2,9 @@ require 'spec_helper'
 
 RSpec.describe Ultron::Transport::Serial do
   let(:port) { '/dev/cu.usbmodem1421' }
-  let(:rate) { 576000 }
+  let(:rate) { 576_000 }
   let(:instance) { described_class.new(port, rate) }
   let(:posix_termios) { double(RubySerial::Posix::Termios) }
-
 
   describe '#connect' do
     subject { instance.connect }
@@ -20,7 +19,7 @@ RSpec.describe Ultron::Transport::Serial do
   end
 
   describe '#get' do
-    let(:message) { "{\"topic\":\"receiver/temperature\",\"value\":\"30\"}" }
+    let(:message) { '{"topic":"receiver/temperature","value":"30"}' }
 
     subject { instance.get }
 

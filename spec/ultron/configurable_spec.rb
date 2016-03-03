@@ -8,7 +8,4 @@ RSpec.describe Ultron::Configurable do
 
     it { is_expected.to eq keys }
   end
-
-  describe '#configure' do
-  end
 end

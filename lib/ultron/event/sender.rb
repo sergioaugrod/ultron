@@ -27,7 +27,7 @@ module Ultron
         Logger.info("Subscribe sender queues\n")
 
         @mqtt.get do |topic, value|
-          message = {topic: topic, value: value}.to_json
+          message = { topic: topic, value: value }.to_json
 
           Logger.info("Write #{message} to serial\n")
           @serial.write(message)
