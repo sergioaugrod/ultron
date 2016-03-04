@@ -20,18 +20,18 @@ module Ultron
 
       def parse_and_publish(message)
         data = JSON.parse(message)
-        Logger.info("Parsed serial object: #{data}")
+        Ultron.logger.info("Parsed serial object: #{data}")
 
         publish(data['topic'], data['value']) if @mqtt
       rescue
-        Logger.error("Failed to parse serial object: #{message}")
+        Ultron.logger.error("Failed to parse serial object: #{message}")
       end
 
       private
 
       def publish(topic, value)
         @mqtt.publish("receiver/#{topic}", value)
-        Logger.info("Publish #{value} to sensors/#{topic}\n")
+        Ultron.logger.info("Publish #{value} to sensors/#{topic}\n")
       end
     end
   end

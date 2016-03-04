@@ -13,7 +13,7 @@ RSpec.describe Ultron::Event::Receiver do
 
     context 'when valid message' do
       before do
-        expect(Ultron::Logger).to receive(:info).and_return(true)
+        expect(Ultron.logger).to receive(:info).and_return(true)
       end
 
       context 'when has mqtt' do
@@ -37,7 +37,7 @@ RSpec.describe Ultron::Event::Receiver do
       let(:message) { 'topic: receiver/temperature, value: 30' }
 
       before do
-        expect(Ultron::Logger).to receive(:error).and_return(true)
+        expect(Ultron.logger).to receive(:error).and_return(true)
       end
 
       it { is_expected.to be_truthy }

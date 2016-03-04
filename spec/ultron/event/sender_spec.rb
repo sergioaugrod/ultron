@@ -20,7 +20,7 @@ RSpec.describe Ultron::Event::Sender do
       let(:mqtt) { nil }
 
       before do
-        expect(Ultron::Logger).to receive(:warn).and_return(true)
+        expect(Ultron.logger).to receive(:warn).and_return(true)
       end
 
       it { is_expected.to be_truthy }

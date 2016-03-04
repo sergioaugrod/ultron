@@ -25,7 +25,7 @@ module Ultron
     def mqtt_connect
       Transport::MQTT.new(@mqtt).connect
     rescue
-      Logger.error('Failed MQTT connection') && false
+      Ultron.logger.error('Failed MQTT connection') && false
     end
   end
 end

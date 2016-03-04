@@ -16,7 +16,7 @@ module Ultron
         if @mqtt
           subscribe_queues
         else
-          Logger.warn('Sender is offline because MQTT isnt connected')
+          Ultron.logger.warn('Sender is offline because MQTT isnt connected')
         end
       end
 
@@ -24,12 +24,12 @@ module Ultron
 
       def subscribe_queues
         @mqtt.subscribe('sender/#')
-        Logger.info("Subscribe sender queues\n")
+        Ultron.logger.info("Subscribe sender queues\n")
 
         @mqtt.get do |topic, value|
           message = { topic: topic, value: value }.to_json
 
-          Logger.info("Write #{message} to serial\n")
+          Ultron.logger.info("Write #{message} to serial\n")
           @serial.write(message)
         end
       end
