@@ -5,3 +5,6 @@ require 'rspec/its'
 require 'json'
 require 'rubyserial'
 require 'mqtt'
+require 'codeclimate-test-reporter'
+
+CodeClimate::TestReporter.start

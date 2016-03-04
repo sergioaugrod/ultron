@@ -21,4 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubyserial'
   spec.add_development_dependency 'mqtt'
   spec.add_development_dependency 'awesome_print'
+  spec.add_development_dependency 'codeclimate-test-reporter'
 end
