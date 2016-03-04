@@ -1,5 +1,10 @@
 # Ultron
 
+[![Build Status](https://travis-ci.org/sergioaugrod/ultron.svg?branch=master)](https://travis-ci.org/sergioaugrod/ultron)
+[![Code Climate](https://codeclimate.com/github/sergioaugrod/ultron/badges/gpa.svg)](https://codeclimate.com/github/sergioaugrod/ultron)
+[![Test Coverage](https://codeclimate.com/github/sergioaugrod/ultron/badges/coverage.svg)](https://codeclimate.com/github/sergioaugrod/ultron/coverage)
+[![Issue Count](https://codeclimate.com/github/sergioaugrod/ultron/badges/issue_count.svg)](https://codeclimate.com/github/sergioaugrod/ultron)
+
 Communicates with arduino and publishes to a MQTT broker.
 
 ## Installation
