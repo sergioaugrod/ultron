@@ -8,6 +8,8 @@ RSpec.describe Ultron::Event::Receiver do
   describe '#parse_and_publish' do
     let(:message) { '{"topic":"receiver/temperature","value":"30"}' }
     let(:message_parsed) { JSON.parse(message) }
+    let(:topic) { message_parsed['topic'] }
+    let(:value) { message_parsed['value'] }
 
     subject { instance.parse_and_publish(message) }
 
@@ -18,9 +20,8 @@ RSpec.describe Ultron::Event::Receiver do
 
       context 'when has mqtt' do
         before do
-          expect(instance).to receive(:publish)
-            .with(message_parsed['topic'], message_parsed['value'])
-            .and_return(true)
+          expect(mqtt).to receive(:publish).with("receiver/#{topic}", value).and_return(true)
+          expect(Ultron.logger).to receive(:info).and_return(true)
         end
 
         it { is_expected.to be_truthy }
