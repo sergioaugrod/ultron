@@ -15,6 +15,7 @@ module Ultron
       def execute
         loop do
           parse_and_publish(@serial.get)
+          sleep(1)
         end
       end
 
