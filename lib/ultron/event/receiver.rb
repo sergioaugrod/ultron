@@ -32,7 +32,7 @@ module Ultron
 
       def publish(topic, value)
         @mqtt.publish("receiver/#{topic}", value)
-        Ultron.logger.info("Publish #{value} to sensors/#{topic}\n")
+        Ultron.logger.info("Publish #{value} to receiver/#{topic}\n")
       end
     end
   end
